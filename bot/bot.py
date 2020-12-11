@@ -23,7 +23,6 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-    print(message.content)
     message_post = {
         "author": message.author,
         "content": message.content,
