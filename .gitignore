@@ -1,3 +1,4 @@
 server/node_modules
 bot/cfg.py
 package-lock.json
+bot/__pycache__
