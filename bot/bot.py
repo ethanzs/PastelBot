@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import requests
+import cfg  # Local config file
 
 # Configs
 COMMAND_PREFIX = "!"
@@ -31,4 +32,4 @@ async def on_message(message):
 
 
 # Secret token given by Discord for your bot
-bot.run("NzgxMjE0OTcwMDU3NTg4NzU2.X76ZIw.4khImFR9IqRWaL8GUhFnaJQF7u4")
+bot.run(cfg.BOT_KEY)
