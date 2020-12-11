@@ -6,11 +6,14 @@ const chalk = require('chalk'); // Fancy console formatting
 // Configs
 const PORT = 8080
 
+// Global messages variable (wipes after server restart)
+var messages = ""
+
 // Application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.get("/", (req, res) => {
-    res.send("Endpoint works")
+    res.send(messages)
 })
 
 // Bot status endpoint
@@ -23,6 +26,7 @@ app.post("/api/discord/botstatus", urlencodedParser, (req, res) => {
 app.post("/api/discord/message", urlencodedParser, (req, res) => {
     const {author, content} = req.body
     console.log(chalk.hex("#6CE8EB")(`${author}: `) + `${content}`)
+    messages += (`<p>${author}: ${content}</p>`)
     res.send("Data received.")
 })
 
