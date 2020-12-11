@@ -23,10 +23,11 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
+    # Data to be posted
     message_post = {
         "author": message.author,
         "content": message.content,
-    }  # Data to be posted
+    }
     requests.post(url=MESSAGE_ENDPOINT, data=message_post)  # Post
 
 
